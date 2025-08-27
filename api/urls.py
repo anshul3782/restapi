@@ -5,7 +5,11 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def api_root(request):
-    return Response({"message": "API is working!", "endpoints": ["/api/checkins/"]})
+    return Response({
+        "message": "API is working!", 
+        "endpoints": ["/api/checkins/", "/api/checkins/by-phone/{phone_number}/"],
+        "status": "ready"
+    })
 
 urlpatterns = [
     path("", api_root),
